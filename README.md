@@ -37,7 +37,7 @@ Check if Python is installed on your system by running:
 ```
 python --version
 ```
-If Python isn't installed, could you download and install the latest version from [python.org](python.org)
+If Python isn't installed, could you download and install the latest version from [python. org](python.org)
 Install the necessary Python packages: Navigate to the directory where you downloaded or cloned the repository, then run the following command to install the required packages:
 ```
 pip install requests
@@ -56,7 +56,7 @@ The program will start and you can follow the on-screen prompts.
 If there’s a new release, you will be notified within the program, or You can download the newer version from the [GitHub Releases page](https://github.com/lPElnagar/GDmaker/releases).
 
 Support
-If you encounter any issues or need further assistance, feel free to open an issue on the GitHub repository, or contact the developer on his social media below.
+If you encounter any issues or need further assistance, feel free to open an issue on the GitHub repository, or contact me on my social media below.
 
 Copyright Notice
 © 2024 [Loai Elnagar](https://linktr.ee/loaiproductins). All rights reserved.
