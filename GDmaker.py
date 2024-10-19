@@ -1,6 +1,35 @@
 import webbrowser
 import urllib.parse  # To encode the query for the URL
+import requests  # For handling HTTP requests to GitHub's API
 
+# Function to check for updates using GitHub API
+def check_for_updates(current_version):
+    """Check if there's a new version of the program on GitHub releases."""
+    url = "https://api.github.com/repos/lPElnagar/GDmaker/releases/latest"
+    try:
+        response = requests.get(url)
+        data = response.json()
+        latest_version = data['tag_name']
+
+        if latest_version != current_version:
+            print(f"\nNew version available: {latest_version}")
+            print("Would you like to update? (1- Yes, 2- No): ")
+            choice = get_yes_no_choice("")
+            if choice == "yes":
+                download_url = data['assets'][0]['browser_download_url']
+                print(f"Downloading from {download_url}...")
+                # You can implement an auto-download feature here
+                webbrowser.open(download_url)
+                print("Download started! Please install the latest version.")
+            else:
+                print("You chose not to update.")
+        else:
+            print("You already have the latest version.")
+
+    except Exception as e:
+        print(f"Error checking for updates: {e}")
+
+# Function to get the user's choice for yes/no type questions
 def get_yes_no_choice(prompt):
     """Get the user's choice for yes/no type questions with multiple input options."""
     choice = input(prompt).lower().strip()
@@ -14,6 +43,12 @@ def get_yes_no_choice(prompt):
 def google_dorks_search():
     print("GDorks Query Maker")
     print("© 2024 Loai Elnagar. All rights reserved.")
+    
+    # Current version of the program
+    current_version = "v0.1"
+    
+    # Check for updates before starting the tool
+    check_for_updates(current_version)
 
     while True:
         # User input for the main search query
