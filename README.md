@@ -37,7 +37,7 @@ Check if Python is installed on your system by running:
 ```
 python --version
 ```
-If Python isn't installed, could you download and install the latest version from python.org?
+If Python isn't installed, could you download and install the latest version from [python.org](python.org)
 Install the necessary Python packages: Navigate to the directory where you downloaded or cloned the repository, then run the following command to install the required packages:
 ```
 pip install requests
