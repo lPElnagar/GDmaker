@@ -25,7 +25,7 @@ You can go to the GitHub repository.
 Click on the Code button and select Download ZIP, or clone the repository using the following command:
 
 ```
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/lPElnagar/GDmaker.git
 ```
 
 Extract the downloaded ZIP file or navigate to the cloned repository.
