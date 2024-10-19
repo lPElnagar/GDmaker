@@ -55,6 +55,8 @@ The program will start and you can follow the on-screen prompts.
 4. Optional: Updating the Program
 If there’s a new release, you will be notified within the program, or You can download the newer version from the [GitHub Releases page](https://github.com/lPElnagar/GDmaker/releases).
 
+___________________________________________________________________________________
+
 ### **Support**
 If you encounter any issues or need further assistance, feel free to open an issue on the GitHub repository, or contact me on my social media below.
 
