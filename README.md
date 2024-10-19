@@ -1,6 +1,6 @@
 # **How to Run the GDmaker Tool**
 
-Thank you for choosing the **GDorks Query Maker Tool**! Below is a step-by-step guide to running the program depending on your operating system.
+Thank you for choosing the **Google Dorks Query Maker Tool**! Below is a step-by-step guide to running the program depending on your operating system.
 ___________________________________________________________________________________
 ### **1. Running on Windows (Easy Installation)**
 Running the GDorks Query Tool on Windows is simple! Just follow these steps:
