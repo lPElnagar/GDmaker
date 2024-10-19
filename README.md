@@ -7,7 +7,7 @@ Running the GDorks Query Tool on Windows is simple! Just follow these steps:
 
 Download the executable (.exe) file:
 
-Go to the GitHub Releases page.
+Go to the [GitHub Releases page](https://github.com/lPElnagar/GDmaker/releases).
 Download the latest .exe version of the program.
 Run the Program:
 
