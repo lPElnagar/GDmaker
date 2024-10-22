@@ -18,7 +18,6 @@ def check_for_updates(current_version):
             if choice == "yes":
                 download_url = data['assets'][0]['browser_download_url']
                 print(f"Downloading from {download_url}...")
-                # You can implement an auto-download feature here
                 webbrowser.open(download_url)
                 print("Download started! Please install the latest version.")
             else:
