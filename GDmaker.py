@@ -44,20 +44,36 @@ def google_dorks_search():
     print("© 2024 Loai Elnagar. All rights reserved.")
     
     # Current version of the program
-    current_version = "v0.1"
+    current_version = "v0.2"
     
     # Check for updates before starting the tool
     check_for_updates(current_version)
 
     while True:
         # User input for the main search query
-        query = input("\nsearching about? (e.g., Loai Elnagar): ")
+        query = input("\nSearching about? (e.g., Loai Elnagar): ")
 
         # User input for the specific website (optional)
-        site = input("website? (Enter the website or press Enter to skip): ")
+        site = input("Website? (Enter the website or press Enter to skip): ")
 
-        # User input for the file type (optional)
-        filetype = input("filetype? (e.g., pdf, docx, xls) or press Enter to skip: ")
+        # Provide a list of common file types
+        filetypes = {
+            "1": "pdf",
+            "2": "docx",
+            "3": "xls",
+            "4": "ppt",
+            "5": "txt",
+            "6": "jpg",
+            "7": "png",
+            "8": "gif"
+        }
+
+        print("\nChoose a file type:")
+        for key, value in filetypes.items():
+            print(f"{key}. {value}")
+        
+        filetype_choice = input("Enter the number of the file type you want or press Enter to skip: ")
+        filetype = filetypes.get(filetype_choice, "")
 
         # Ask if the user wants to see other options
         other_option_choice = get_yes_no_choice("\nWant to see other options? (1- Yes, 2- No): ")
@@ -72,6 +88,7 @@ def google_dorks_search():
             print("4. intext: Search for pages containing a specific word in the text.")
             print("5. link: Find pages that link to a specific URL.")
             print("6. cache: View Google's cached version of a website.")
+            print("7. image: Search for images.")
             other_option = input("Choose an option (or press Enter to skip): ")
 
             if other_option == "1":
@@ -86,15 +103,21 @@ def google_dorks_search():
                 additional_input = "link:" + input("Enter the URL to find pages linking to it: ")
             elif other_option == "6":
                 additional_input = "cache:" + input("Enter the URL to view its cached version: ")
+            elif other_option == "7":
+                additional_input = "images"
 
         # Constructing the Google Dorks query
         dork_query = f'"{query}"'
         if site:
             dork_query += f" site:{site}"
-        if filetype:
-            dork_query += f" filetype:{filetype}"
         if additional_input:
             dork_query += f" {additional_input}"
+
+        # Check if the selected filetype is for images and exclude webp
+        if filetype in ["jpg", "png", "gif"]:
+            dork_query += f" filetype:{filetype} -webp"  # Exclude webp images
+        elif filetype:  # For non-image file types
+            dork_query += f" filetype:{filetype}"  # Add the file type to the query
 
         # Output the final query
         print("\nQuery is:")
@@ -102,7 +125,12 @@ def google_dorks_search():
 
         # Encode the query for a Google search URL
         encoded_query = urllib.parse.quote(dork_query)
-        search_url = f"https://www.google.com/search?q={encoded_query}"
+
+        # Check if the selected filetype is for images
+        if filetype in ["jpg", "png", "gif"]:
+            search_url = f"https://www.google.com/search?q={encoded_query}&tbm=isch"  # Image search
+        else:
+            search_url = f"https://www.google.com/search?q={encoded_query}"  # General search
 
         # Automatically open the default browser and search the query
         webbrowser.open(search_url)
